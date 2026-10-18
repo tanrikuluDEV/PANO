@@ -124,6 +124,38 @@ struct MatchRow: View {
         let sel = m.id == store.selectedMatch?.id
         let live = m.inPlay
         Button { store.selectedMatchID = m.id; Task { await store.loadMatchDetail() } } label: {
+            if isPhone { phoneRow(sel: sel, live: live) } else { wideRow(sel: sel, live: live) }
+        }.buttonStyle(.plain)
+    }
+
+    /// The phone is too narrow for status, both teams, score and venue on one line: status and venue go on top,
+    /// and the score keeps its width while the names give way.
+    private func phoneRow(sel: Bool, live: Bool) -> some View {
+        VStack(spacing: 8) {
+            HStack(spacing: 6) {
+                PulseDot(color: live ? T.down : m.kind == .upcoming ? .clear : T.ink3, pulsing: m.kind == .live)
+                Text(m.statusText).font(.mono(11)).foregroundStyle(live ? T.down : T.ink3)
+                Spacer(minLength: 8)
+                Text(m.venue).font(.mono(10, .regular)).foregroundStyle(T.ink3).lineLimit(1)
+            }
+            HStack(spacing: 8) {
+                Text(m.home).font(.ui(14, store.isFavorite(m.home) ? .semibold : .regular))
+                    .lineLimit(1).minimumScaleFactor(0.8).frame(maxWidth: .infinity, alignment: .trailing)
+                TeamBadge(code: m.homeCode, logo: m.homeLogo, size: 24)
+                Text(m.scoreText).font(.mono(17)).tracking(0.3).foregroundStyle(m.kind == .upcoming ? T.ink3 : T.ink)
+                    .fixedSize().padding(.horizontal, 2)
+                TeamBadge(code: m.awayCode, logo: m.awayLogo, size: 24)
+                Text(m.away).font(.ui(14, store.isFavorite(m.away) ? .semibold : .regular))
+                    .lineLimit(1).minimumScaleFactor(0.8).frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+        .padding(.horizontal, 12).padding(.vertical, 10)
+        .background(sel ? T.accentSoft : T.paper2, in: RoundedRectangle(cornerRadius: 10))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(sel ? T.accent : T.rule, lineWidth: 1))
+        .contentShape(Rectangle())
+    }
+
+    private func wideRow(sel: Bool, live: Bool) -> some View {
             HStack(spacing: 14) {
                 HStack(spacing: 6) {
                     PulseDot(color: live ? T.down : m.kind == .upcoming ? .clear : T.ink3, pulsing: m.kind == .live)
@@ -148,7 +180,6 @@ struct MatchRow: View {
             .background(sel ? T.accentSoft : T.paper2, in: RoundedRectangle(cornerRadius: 10))
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(sel ? T.accent : T.rule, lineWidth: 1))
             .contentShape(Rectangle())
-        }.buttonStyle(.plain)
     }
 }
 
