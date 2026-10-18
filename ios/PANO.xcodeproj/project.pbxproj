@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06174A1AECB941410D15263A /* Dedup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD30CADE68BE93938D46B3 /* Dedup.swift */; };
+		0792A75AB094E492272EABF2 /* MorningBrief.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29A33A995A39A1BB67B1FC /* MorningBrief.swift */; };
+		0E5B6E0D6B62F521CDE48290 /* PlatformViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E62E7FB1BE2ED00D8E5806 /* PlatformViews.swift */; };
+		172120D5FE059ADF466027AF /* FutbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E50BA2052F7817A5BDB661 /* FutbolView.swift */; };
+		175194BFD5C115C3F43201AE /* EkonomiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9596837882E3E0461AB037 /* EkonomiView.swift */; };
+		183EF5624971E1F68F655426 /* TodoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DAC9F015477C9DD43DF33 /* TodoRow.swift */; };
+		1A2E28126B92FAFE7C8BFB06 /* Takvim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F17C8FE4F078E7D88A2A3E /* Takvim.swift */; };
+		37344DF545964E8DB22D51D3 /* local-stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 331A4029B89ADA0759422240 /* local-stations.json */; };
+		3E569DBEC4A27A7CC20B9280 /* WebOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99789549A67D95D66EB5FE28 /* WebOverlay.swift */; };
+		466612CDE44A1AE26334E1F7 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46A8A4997DD4C4B9853BC7 /* Services.swift */; };
+		500D4D0D48BE7BB47C376230 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AB2486D9D3D24DB06FBAC1 /* Models.swift */; };
+		590FB3B4612F06567EB7017C /* ArsivView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC91266AAFBA489B458717C /* ArsivView.swift */; };
+		592E23336EFC44AB1ADB9567 /* MobileHaberler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5EC4BC157AA0D835F8A1B8 /* MobileHaberler.swift */; };
+		619BAFC8993AB32725A90B87 /* Deprem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C47AD923C1B2394F5782F /* Deprem.swift */; };
+		656663D0CAC4A535DFC1CFDE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC9CD681CA9224F49AF0C9 /* SettingsView.swift */; };
+		6B823F9DACA6490A73C884F6 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948B00A3A27BFD41B9A95D6 /* Article.swift */; };
+		6C33D36A56CD597164EC257F /* IPTVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E65F9BD508D958227A35 /* IPTVView.swift */; };
+		7C6973B04A509F9323D4F4C0 /* GununOzeti.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BC370A0F49E72AF29FA21 /* GununOzeti.swift */; };
+		7CD76C73EB802771D1AFE4F5 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7079A2F4F3572FC3B34CAEE /* TV.swift */; };
+		7D5BB339B4E4574B0547D1EB /* SehrimCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6218D863819DADBD1DFF3 /* SehrimCard.swift */; };
+		81527EFFAF7F902D75976533 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA20FAF3D6BA9E798E3A9B9 /* Components.swift */; };
+		863CDF9F7CB6442342999E2A /* BugunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B21D46AE26A9831CE713F /* BugunView.swift */; };
+		899909A7290CE2B0A9BED7AD /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 50211245E8F5FAA498A6CDC7 /* Fonts */; };
+		8D800373C188482BDC4F1C44 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6A740018D14BE8ABC64F7 /* Radio.swift */; };
+		92D4E9EE9A9DF7B0694BC639 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0FDBE531641288AD13924 /* RadioView.swift */; };
+		97BEB38D902C813B6C4A2392 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083F80563A977A2E827E55B3 /* Entities.swift */; };
+		9926C87F5D1FE6D5312346F6 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE75B133A0580060B8BFCFB /* Notifications.swift */; };
+		99917658341F9F2B7C58CEA8 /* MiniTVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6C5348B9815A98EC72B70 /* MiniTVPlayer.swift */; };
+		9DF69EA466EB06DB9CE24577 /* MobileAyarlar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2D37FEF39DDC4C7E67155E /* MobileAyarlar.swift */; };
+		9E2E68BD15A769D5B4919DA0 /* HaberlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8214626CA6933CE98D336C6 /* HaberlerView.swift */; };
+		AB227CAE4F4A1E45178BB2CF /* MobileBugun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50E9799481C5C3D98DD594 /* MobileBugun.swift */; };
+		ADEBC3CC4B264300308FF65A /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8707F14A3F5A1F87D595307 /* Platform.swift */; };
+		AF46A3FDD717E374106D3CD0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C545DADADAECBAD89D80FCE /* Storage.swift */; };
+		B06B2D4AB9CEFC77B53CC623 /* SporView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EE20A77508D35590DA9A2 /* SporView.swift */; };
+		B8A62347E0F90F2416BDDAC8 /* CanliTVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453104501394512BB9591FD7 /* CanliTVView.swift */; };
+		BF572231149508CF4FD95473 /* MobileRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4148AB344D82B2F9B857C682 /* MobileRoot.swift */; };
+		C0E27C30AE17201246AF6B8B /* DepremView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA30D22814833622A56585D /* DepremView.swift */; };
+		C91F33FE6AAC1DAE927DAA82 /* HavaDurumuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F0ADC34561F63C091E6AB /* HavaDurumuView.swift */; };
+		D871E343A6391D8618148611 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A905492D4FF457A9F4D15E5 /* Theme.swift */; };
+		DCAD2012E80FAA1DE2A48091 /* DefterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2F09F5DB9C0DD4457B806 /* DefterView.swift */; };
+		DE33BB8B1AD5037813093714 /* RadioSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58D9AF3AB08FB7544780E5C /* RadioSongs.swift */; };
+		E9EEB34452B3D8ED43AB0A7C /* HaftaninOzetiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FCFD8AFB772E3AD8CB6732 /* HaftaninOzetiView.swift */; };
+		EEBEFB59D04BF599DC165EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E76B959E04B39DB57F24EF9 /* Assets.xcassets */; };
+		EF200EAB1CE70C9E6B4103CB /* Yerel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7487D03CEA5E34FC514E8D8 /* Yerel.swift */; };
+		EFA40C2090D32D294853B6BD /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F486B69CB48F397CBA5A7B /* SplashView.swift */; };
+		F3FF253A08CFDFD1891C5501 /* PANOApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA18E9092E5F5294DCD470 /* PANOApp.swift */; };
+		F7C933F70A4F846C565B755A /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4FABC283D535560E00AC0 /* AppStore.swift */; };
+		F87D4A1C1385308ABE6E6AB3 /* districts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E618582B8EBDDCB896AB6B9 /* districts.json */; };
+		F8F256CF49AD11AA6C389DEB /* TeamCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1E9CD953E0DE18B963C5C1 /* TeamCard.swift */; };
+		FA73FDB0E24487F0FCA505F9 /* city-links.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C3E1F588EEC518F1E05400E /* city-links.json */; };
+		FB9C9D164261118CDEF23DDE /* Fuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA59D7B1CAE9CA0816A9298 /* Fuel.swift */; };
+		FBEEB131FF92BAB5A3B6508E /* TeknolojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E9014562C5850025FD223F /* TeknolojiView.swift */; };
+		FC442C1F04074D64AAC6EE84 /* Traffic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F656D2382E69485CF803122 /* Traffic.swift */; };
+		FD9510335CF2A4565A7DE1A2 /* BriefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A560E2463B4EDDD1E93C606 /* BriefView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		06F486B69CB48F397CBA5A7B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		083F80563A977A2E827E55B3 /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		0AFD30CADE68BE93938D46B3 /* Dedup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dedup.swift; sourceTree = "<group>"; };
+		0DD6A740018D14BE8ABC64F7 /* Radio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
+		0EBC9CD681CA9224F49AF0C9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0EE4FABC283D535560E00AC0 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		0F656D2382E69485CF803122 /* Traffic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traffic.swift; sourceTree = "<group>"; };
+		1E76B959E04B39DB57F24EF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1EA20FAF3D6BA9E798E3A9B9 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		2A905492D4FF457A9F4D15E5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2A9596837882E3E0461AB037 /* EkonomiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkonomiView.swift; sourceTree = "<group>"; };
+		2EAA18E9092E5F5294DCD470 /* PANOApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANOApp.swift; sourceTree = "<group>"; };
+		331A4029B89ADA0759422240 /* local-stations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "local-stations.json"; sourceTree = "<group>"; };
+		4148AB344D82B2F9B857C682 /* MobileRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRoot.swift; sourceTree = "<group>"; };
+		453104501394512BB9591FD7 /* CanliTVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanliTVView.swift; sourceTree = "<group>"; };
+		45D6C5348B9815A98EC72B70 /* MiniTVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniTVPlayer.swift; sourceTree = "<group>"; };
+		50211245E8F5FAA498A6CDC7 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = PANO/Resources/Fonts; sourceTree = SOURCE_ROOT; };
+		574113B153BC20C568E797D1 /* PANO.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PANO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A2D37FEF39DDC4C7E67155E /* MobileAyarlar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAyarlar.swift; sourceTree = "<group>"; };
+		5C3E1F588EEC518F1E05400E /* city-links.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "city-links.json"; sourceTree = "<group>"; };
+		5C46A8A4997DD4C4B9853BC7 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		5EA30D22814833622A56585D /* DepremView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepremView.swift; sourceTree = "<group>"; };
+		642DAC9F015477C9DD43DF33 /* TodoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRow.swift; sourceTree = "<group>"; };
+		65D6218D863819DADBD1DFF3 /* SehrimCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SehrimCard.swift; sourceTree = "<group>"; };
+		65EC96F539CCF83C83801C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		79E50BA2052F7817A5BDB661 /* FutbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutbolView.swift; sourceTree = "<group>"; };
+		7D50E9799481C5C3D98DD594 /* MobileBugun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileBugun.swift; sourceTree = "<group>"; };
+		88F17C8FE4F078E7D88A2A3E /* Takvim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Takvim.swift; sourceTree = "<group>"; };
+		8A5EC4BC157AA0D835F8A1B8 /* MobileHaberler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileHaberler.swift; sourceTree = "<group>"; };
+		8D6EE20A77508D35590DA9A2 /* SporView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporView.swift; sourceTree = "<group>"; };
+		8E4F0ADC34561F63C091E6AB /* HavaDurumuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HavaDurumuView.swift; sourceTree = "<group>"; };
+		8EA59D7B1CAE9CA0816A9298 /* Fuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fuel.swift; sourceTree = "<group>"; };
+		99789549A67D95D66EB5FE28 /* WebOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOverlay.swift; sourceTree = "<group>"; };
+		9A560E2463B4EDDD1E93C606 /* BriefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefView.swift; sourceTree = "<group>"; };
+		9C545DADADAECBAD89D80FCE /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		9DB2F09F5DB9C0DD4457B806 /* DefterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefterView.swift; sourceTree = "<group>"; };
+		9E618582B8EBDDCB896AB6B9 /* districts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = districts.json; sourceTree = "<group>"; };
+		A58D9AF3AB08FB7544780E5C /* RadioSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSongs.swift; sourceTree = "<group>"; };
+		A8707F14A3F5A1F87D595307 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		AF1E9CD953E0DE18B963C5C1 /* TeamCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCard.swift; sourceTree = "<group>"; };
+		B2E62E7FB1BE2ED00D8E5806 /* PlatformViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformViews.swift; sourceTree = "<group>"; };
+		B7E9014562C5850025FD223F /* TeknolojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeknolojiView.swift; sourceTree = "<group>"; };
+		B9FCFD8AFB772E3AD8CB6732 /* HaftaninOzetiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaftaninOzetiView.swift; sourceTree = "<group>"; };
+		BEE75B133A0580060B8BFCFB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		C24BC370A0F49E72AF29FA21 /* GununOzeti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GununOzeti.swift; sourceTree = "<group>"; };
+		C9E0FDBE531641288AD13924 /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
+		D8214626CA6933CE98D336C6 /* HaberlerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaberlerView.swift; sourceTree = "<group>"; };
+		D85C47AD923C1B2394F5782F /* Deprem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deprem.swift; sourceTree = "<group>"; };
+		DDA9E65F9BD508D958227A35 /* IPTVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPTVView.swift; sourceTree = "<group>"; };
+		DFC91266AAFBA489B458717C /* ArsivView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArsivView.swift; sourceTree = "<group>"; };
+		E7487D03CEA5E34FC514E8D8 /* Yerel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yerel.swift; sourceTree = "<group>"; };
+		EF29A33A995A39A1BB67B1FC /* MorningBrief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningBrief.swift; sourceTree = "<group>"; };
+		F0AB2486D9D3D24DB06FBAC1 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F7079A2F4F3572FC3B34CAEE /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
+		F76B21D46AE26A9831CE713F /* BugunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugunView.swift; sourceTree = "<group>"; };
+		F948B00A3A27BFD41B9A95D6 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		8C34DAA969D10B84E1CE3E70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				574113B153BC20C568E797D1 /* PANO.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		970D6D847577E6F1531C4AD2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5C3E1F588EEC518F1E05400E /* city-links.json */,
+				9E618582B8EBDDCB896AB6B9 /* districts.json */,
+				50211245E8F5FAA498A6CDC7 /* Fonts */,
+				331A4029B89ADA0759422240 /* local-stations.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A2D46D0CF42D92A786E9B6EE /* PANO */ = {
+			isa = PBXGroup;
+			children = (
+				1E76B959E04B39DB57F24EF9 /* Assets.xcassets */,
+				ECD7FB1DA706EA4DC954C431 /* iOS */,
+				970D6D847577E6F1531C4AD2 /* Resources */,
+				D75F07AE982F76A149912814 /* Shared */,
+			);
+			path = PANO;
+			sourceTree = "<group>";
+		};
+		C5037C27D6F459BA38F818E2 = {
+			isa = PBXGroup;
+			children = (
+				A2D46D0CF42D92A786E9B6EE /* PANO */,
+				8C34DAA969D10B84E1CE3E70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D75F07AE982F76A149912814 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0EE4FABC283D535560E00AC0 /* AppStore.swift */,
+				DFC91266AAFBA489B458717C /* ArsivView.swift */,
+				F948B00A3A27BFD41B9A95D6 /* Article.swift */,
+				F76B21D46AE26A9831CE713F /* BugunView.swift */,
+				453104501394512BB9591FD7 /* CanliTVView.swift */,
+				1EA20FAF3D6BA9E798E3A9B9 /* Components.swift */,
+				0AFD30CADE68BE93938D46B3 /* Dedup.swift */,
+				9DB2F09F5DB9C0DD4457B806 /* DefterView.swift */,
+				D85C47AD923C1B2394F5782F /* Deprem.swift */,
+				5EA30D22814833622A56585D /* DepremView.swift */,
+				2A9596837882E3E0461AB037 /* EkonomiView.swift */,
+				083F80563A977A2E827E55B3 /* Entities.swift */,
+				8EA59D7B1CAE9CA0816A9298 /* Fuel.swift */,
+				79E50BA2052F7817A5BDB661 /* FutbolView.swift */,
+				C24BC370A0F49E72AF29FA21 /* GununOzeti.swift */,
+				D8214626CA6933CE98D336C6 /* HaberlerView.swift */,
+				B9FCFD8AFB772E3AD8CB6732 /* HaftaninOzetiView.swift */,
+				8E4F0ADC34561F63C091E6AB /* HavaDurumuView.swift */,
+				DDA9E65F9BD508D958227A35 /* IPTVView.swift */,
+				45D6C5348B9815A98EC72B70 /* MiniTVPlayer.swift */,
+				F0AB2486D9D3D24DB06FBAC1 /* Models.swift */,
+				EF29A33A995A39A1BB67B1FC /* MorningBrief.swift */,
+				0DD6A740018D14BE8ABC64F7 /* Radio.swift */,
+				A58D9AF3AB08FB7544780E5C /* RadioSongs.swift */,
+				C9E0FDBE531641288AD13924 /* RadioView.swift */,
+				65D6218D863819DADBD1DFF3 /* SehrimCard.swift */,
+				5C46A8A4997DD4C4B9853BC7 /* Services.swift */,
+				0EBC9CD681CA9224F49AF0C9 /* SettingsView.swift */,
+				8D6EE20A77508D35590DA9A2 /* SporView.swift */,
+				9C545DADADAECBAD89D80FCE /* Storage.swift */,
+				88F17C8FE4F078E7D88A2A3E /* Takvim.swift */,
+				AF1E9CD953E0DE18B963C5C1 /* TeamCard.swift */,
+				B7E9014562C5850025FD223F /* TeknolojiView.swift */,
+				2A905492D4FF457A9F4D15E5 /* Theme.swift */,
+				642DAC9F015477C9DD43DF33 /* TodoRow.swift */,
+				0F656D2382E69485CF803122 /* Traffic.swift */,
+				F7079A2F4F3572FC3B34CAEE /* TV.swift */,
+				99789549A67D95D66EB5FE28 /* WebOverlay.swift */,
+				E7487D03CEA5E34FC514E8D8 /* Yerel.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		ECD7FB1DA706EA4DC954C431 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9A560E2463B4EDDD1E93C606 /* BriefView.swift */,
+				65EC96F539CCF83C83801C7A /* Info.plist */,
+				5A2D37FEF39DDC4C7E67155E /* MobileAyarlar.swift */,
+				7D50E9799481C5C3D98DD594 /* MobileBugun.swift */,
+				8A5EC4BC157AA0D835F8A1B8 /* MobileHaberler.swift */,
+				4148AB344D82B2F9B857C682 /* MobileRoot.swift */,
+				BEE75B133A0580060B8BFCFB /* Notifications.swift */,
+				2EAA18E9092E5F5294DCD470 /* PANOApp.swift */,
+				A8707F14A3F5A1F87D595307 /* Platform.swift */,
+				B2E62E7FB1BE2ED00D8E5806 /* PlatformViews.swift */,
+				06F486B69CB48F397CBA5A7B /* SplashView.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		59416249223DD08A1C95B679 /* PANO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1DAF820974C035C28A6AF97 /* Build configuration list for PBXNativeTarget "PANO" */;
+			buildPhases = (
+				44B8E781F7B21F3B6A2C3D4A /* Sources */,
+				F3870281725907A99E8CFDB1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PANO;
+			packageProductDependencies = (
+			);
+			productName = PANO;
+			productReference = 574113B153BC20C568E797D1 /* PANO.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96BEFBC0922668D2C90D2140 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					59416249223DD08A1C95B679 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2F4DAC1C665435B85DBA1EC8 /* Build configuration list for PBXProject "PANO" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C5037C27D6F459BA38F818E2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8C34DAA969D10B84E1CE3E70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				59416249223DD08A1C95B679 /* PANO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F3870281725907A99E8CFDB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEBEFB59D04BF599DC165EDB /* Assets.xcassets in Resources */,
+				899909A7290CE2B0A9BED7AD /* Fonts in Resources */,
+				FA73FDB0E24487F0FCA505F9 /* city-links.json in Resources */,
+				F87D4A1C1385308ABE6E6AB3 /* districts.json in Resources */,
+				37344DF545964E8DB22D51D3 /* local-stations.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		44B8E781F7B21F3B6A2C3D4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7C933F70A4F846C565B755A /* AppStore.swift in Sources */,
+				590FB3B4612F06567EB7017C /* ArsivView.swift in Sources */,
+				6B823F9DACA6490A73C884F6 /* Article.swift in Sources */,
+				FD9510335CF2A4565A7DE1A2 /* BriefView.swift in Sources */,
+				863CDF9F7CB6442342999E2A /* BugunView.swift in Sources */,
+				B8A62347E0F90F2416BDDAC8 /* CanliTVView.swift in Sources */,
+				81527EFFAF7F902D75976533 /* Components.swift in Sources */,
+				06174A1AECB941410D15263A /* Dedup.swift in Sources */,
+				DCAD2012E80FAA1DE2A48091 /* DefterView.swift in Sources */,
+				619BAFC8993AB32725A90B87 /* Deprem.swift in Sources */,
+				C0E27C30AE17201246AF6B8B /* DepremView.swift in Sources */,
+				175194BFD5C115C3F43201AE /* EkonomiView.swift in Sources */,
+				97BEB38D902C813B6C4A2392 /* Entities.swift in Sources */,
+				FB9C9D164261118CDEF23DDE /* Fuel.swift in Sources */,
+				172120D5FE059ADF466027AF /* FutbolView.swift in Sources */,
+				7C6973B04A509F9323D4F4C0 /* GununOzeti.swift in Sources */,
+				9E2E68BD15A769D5B4919DA0 /* HaberlerView.swift in Sources */,
+				E9EEB34452B3D8ED43AB0A7C /* HaftaninOzetiView.swift in Sources */,
+				C91F33FE6AAC1DAE927DAA82 /* HavaDurumuView.swift in Sources */,
+				6C33D36A56CD597164EC257F /* IPTVView.swift in Sources */,
+				99917658341F9F2B7C58CEA8 /* MiniTVPlayer.swift in Sources */,
+				9DF69EA466EB06DB9CE24577 /* MobileAyarlar.swift in Sources */,
+				AB227CAE4F4A1E45178BB2CF /* MobileBugun.swift in Sources */,
+				592E23336EFC44AB1ADB9567 /* MobileHaberler.swift in Sources */,
+				BF572231149508CF4FD95473 /* MobileRoot.swift in Sources */,
+				500D4D0D48BE7BB47C376230 /* Models.swift in Sources */,
+				0792A75AB094E492272EABF2 /* MorningBrief.swift in Sources */,
+				9926C87F5D1FE6D5312346F6 /* Notifications.swift in Sources */,
+				F3FF253A08CFDFD1891C5501 /* PANOApp.swift in Sources */,
+				ADEBC3CC4B264300308FF65A /* Platform.swift in Sources */,
+				0E5B6E0D6B62F521CDE48290 /* PlatformViews.swift in Sources */,
+				8D800373C188482BDC4F1C44 /* Radio.swift in Sources */,
+				DE33BB8B1AD5037813093714 /* RadioSongs.swift in Sources */,
+				92D4E9EE9A9DF7B0694BC639 /* RadioView.swift in Sources */,
+				7D5BB339B4E4574B0547D1EB /* SehrimCard.swift in Sources */,
+				466612CDE44A1AE26334E1F7 /* Services.swift in Sources */,
+				656663D0CAC4A535DFC1CFDE /* SettingsView.swift in Sources */,
+				EFA40C2090D32D294853B6BD /* SplashView.swift in Sources */,
+				B06B2D4AB9CEFC77B53CC623 /* SporView.swift in Sources */,
+				AF46A3FDD717E374106D3CD0 /* Storage.swift in Sources */,
+				7CD76C73EB802771D1AFE4F5 /* TV.swift in Sources */,
+				1A2E28126B92FAFE7C8BFB06 /* Takvim.swift in Sources */,
+				F8F256CF49AD11AA6C389DEB /* TeamCard.swift in Sources */,
+				FBEEB131FF92BAB5A3B6508E /* TeknolojiView.swift in Sources */,
+				D871E343A6391D8618148611 /* Theme.swift in Sources */,
+				183EF5624971E1F68F655426 /* TodoRow.swift in Sources */,
+				FC442C1F04074D64AAC6EE84 /* Traffic.swift in Sources */,
+				3E569DBEC4A27A7CC20B9280 /* WebOverlay.swift in Sources */,
+				EF200EAB1CE70C9E6B4103CB /* Yerel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		288D8B6DEFFC000DA5444830 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PANO/iOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PANO;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Bugün ekranında günün takvim etkinliklerini göstermek için.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Yerel sekmesinde bulunduğun il ve ilçenin haberlerini göstermek için.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ruzname.pano;
+				PRODUCT_NAME = PANO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3BA95699EAB5C9EA45F47697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		596C0C3CE3FF73C47DDEC705 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		983A571A038DCD9887EDF975 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PANO/iOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PANO;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Bugün ekranında günün takvim etkinliklerini göstermek için.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Yerel sekmesinde bulunduğun il ve ilçenin haberlerini göstermek için.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ruzname.pano;
+				PRODUCT_NAME = PANO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F4DAC1C665435B85DBA1EC8 /* Build configuration list for PBXProject "PANO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596C0C3CE3FF73C47DDEC705 /* Debug */,
+				3BA95699EAB5C9EA45F47697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F1DAF820974C035C28A6AF97 /* Build configuration list for PBXNativeTarget "PANO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				288D8B6DEFFC000DA5444830 /* Debug */,
+				983A571A038DCD9887EDF975 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96BEFBC0922668D2C90D2140 /* Project object */;
+}
