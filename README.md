@@ -51,7 +51,7 @@ arasından seçilir.
 - **Şehrim:** Nöbetçi eczaneler, kesinti duyuruları, belediye ve acil numaralar.
 
 <p align="center">
-  <img src="docs/screenshots/maclar.png" width="250" alt="Maçlar">
+  <img src="docs/screenshots/maclar-2.png" width="250" alt="Maçlar">
   <img src="docs/screenshots/ekonomi.png" width="250" alt="Ekonomi">
   <img src="docs/screenshots/radyo.png" width="250" alt="Radyo">
 </p>
