@@ -12,6 +12,6 @@ rsync -a --delete $EXCLUDES "$MAC/" mac/
 rsync -a --delete $EXCLUDES "$IOS/" ios/
 git add -A
 if git diff --cached --quiet; then echo "nothing to publish"; exit 0; fi
-git commit -q -m "${1:-Update}"
+git commit -q -m "${1:-Update}" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 git push -q
 git log -1 --oneline
