@@ -145,6 +145,7 @@ struct NewsDayList: View {
                                 NewsRow(item: h, selected: h.id == selectedID, unread: readMark.map { h.date > $0 } ?? false,
                                         otherSources: e.others.count, expanded: open,
                                         onToggle: { withAnimation(.easeOut(duration: 0.18)) { if open { expanded.remove(h.id) } else { expanded.insert(h.id) } } }) { onSelect(h) }
+                                    .id(h.id)
                                 if open {
                                     ForEach(e.others) { o in OtherSourceRow(item: o, selected: o.id == selectedID) { onSelect(o) } }
                                 }
@@ -154,6 +155,11 @@ struct NewsDayList: View {
                         }
                     }
                 }
+            }
+            // J / K (Shortcuts.swift) move the selection: keep it in view
+            .onChange(of: selectedID) { _, id in
+                guard let id, entries.contains(where: { $0.id == id }) else { return }
+                withAnimation(.easeOut(duration: 0.15)) { proxy.scrollTo(id) }
             }
         }
     }

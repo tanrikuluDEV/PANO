@@ -72,6 +72,21 @@ struct PANOApp: App {
                 Button("Hızlı Ara…") { withAnimation(.easeOut(duration: 0.15)) { store.quickSearchOpen.toggle() } }
                     .keyboardShortcut("k", modifiers: .command)
             }
+            CommandMenu("Git") {
+                ForEach(Array(store.orderedScreens.prefix(9).enumerated()), id: \.element) { i, s in
+                    Button(s.rawValue) { store.quickSearchOpen = false; store.screen = s }
+                        .keyboardShortcut(KeyEquivalent(Character("\(i + 1)")), modifiers: .command)
+                }
+                Divider()
+                Button("Ayarlar") { store.screen = .ayarlar }
+                Divider()
+                Button("Yenile") { Task { await store.refresh() } }
+                    .keyboardShortcut("r", modifiers: .command)
+            }
+            CommandGroup(replacing: .help) {
+                Button("Klavye Kısayolları") { withAnimation(.easeOut(duration: 0.15)) { store.shortcutsOpen.toggle() } }
+                    .keyboardShortcut("/", modifiers: .command)
+            }
             CommandGroup(before: .toolbar) {
                 Button(store.prefs.sidebarCollapsed ? "Kenar Çubuğunu Genişlet" : "Kenar Çubuğunu Daralt") {
                     store.prefs.sidebarCollapsed.toggle()

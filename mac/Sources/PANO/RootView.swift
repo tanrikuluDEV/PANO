@@ -9,6 +9,7 @@ struct RootView: View {
     /// Live width while the sidebar edge is being dragged; nil otherwise.
     @State private var dragWidth: CGFloat?
     @State private var dragStart: CGFloat?
+    @State private var keyMonitor: Any?
 
     private var sidebarWidth: CGFloat {
         dragWidth ?? (store.prefs.sidebarCollapsed ? Self.sidebarNarrow : Self.sidebarWide)
@@ -65,6 +66,9 @@ struct RootView: View {
             if let url = store.webURL { WebOverlay(url: url) }
         }
         .overlay {
+            if store.shortcutsOpen { ShortcutsOverlay().transition(.opacity) }
+        }
+        .overlay {
             if store.quickSearchOpen { QuickSearchView().transition(.opacity) }
         }
         .frame(minWidth: 1040, minHeight: 680)
@@ -73,7 +77,9 @@ struct RootView: View {
         .onAppear {
             store.openSettingsAction = { store.screen = .ayarlar }
             store.openMainAction = { openWindow(id: "main") }
+            if keyMonitor == nil { keyMonitor = Shortcuts.install(store) }
         }
+        .onDisappear { if let m = keyMonitor { NSEvent.removeMonitor(m) }; keyMonitor = nil }
         .animation(.spring(response: 0.35, dampingFraction: 0.85), value: store.prefs.sidebarCollapsed)
         // Most screens never read store.prefs, so a colour-theme change wouldn't otherwise
         // reach their already-rendered accent colours — force the whole window to redraw.

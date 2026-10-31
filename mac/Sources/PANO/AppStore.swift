@@ -151,6 +151,8 @@ final class AppStore {
     var webURL: URL?
     /// ⌘K quick search (QuickSearch.swift) is showing.
     var quickSearchOpen = false
+    /// "?" shortcut list (Shortcuts.swift) is showing.
+    var shortcutsOpen = false
 
     @ObservationIgnored private var monitor: NWPathMonitor?
     @ObservationIgnored private var scheduler: Task<Void, Never>?
