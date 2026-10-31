@@ -64,6 +64,9 @@ struct RootView: View {
         .overlay {
             if let url = store.webURL { WebOverlay(url: url) }
         }
+        .overlay {
+            if store.quickSearchOpen { QuickSearchView().transition(.opacity) }
+        }
         .frame(minWidth: 1040, minHeight: 680)
         .preferredColorScheme(store.colorScheme)
         .ignoresSafeArea()

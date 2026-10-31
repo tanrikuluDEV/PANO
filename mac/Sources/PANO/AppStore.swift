@@ -149,6 +149,8 @@ final class AppStore {
     var sleepMinutesLeft: Int?
     /// Page shown in the in-app browser panel (WebOverlay); nil = closed.
     var webURL: URL?
+    /// ⌘K quick search (QuickSearch.swift) is showing.
+    var quickSearchOpen = false
 
     @ObservationIgnored private var monitor: NWPathMonitor?
     @ObservationIgnored private var scheduler: Task<Void, Never>?
@@ -250,6 +252,11 @@ final class AppStore {
         let t = Search.fold(n.title + "\n" + n.summary)
         searchText[n.id] = t
         return t.contains(q)
+    }
+    /// 0 when the headline contains `q` (folded), 1 when only the summary does, nil when neither.
+    func searchRank(_ n: NewsItem, _ q: String) -> Int? {
+        guard matchesSearch(n, q), let t = searchText[n.id] else { return nil }
+        return t[..<(t.firstIndex(of: "\n") ?? t.endIndex)].contains(q) ? 0 : 1
     }
     var selectedNews: NewsItem? {
         let list = filteredNews

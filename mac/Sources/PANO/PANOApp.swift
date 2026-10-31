@@ -68,6 +68,10 @@ struct PANOApp: App {
         .defaultSize(width: 1280, height: 800)
         .windowStyle(.hiddenTitleBar)
         .commands {
+            CommandGroup(after: .textEditing) {
+                Button("Hızlı Ara…") { withAnimation(.easeOut(duration: 0.15)) { store.quickSearchOpen.toggle() } }
+                    .keyboardShortcut("k", modifiers: .command)
+            }
             CommandGroup(before: .toolbar) {
                 Button(store.prefs.sidebarCollapsed ? "Kenar Çubuğunu Genişlet" : "Kenar Çubuğunu Daralt") {
                     store.prefs.sidebarCollapsed.toggle()
