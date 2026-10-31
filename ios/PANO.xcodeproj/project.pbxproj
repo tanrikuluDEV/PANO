@@ -24,13 +24,17 @@
 		656663D0CAC4A535DFC1CFDE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC9CD681CA9224F49AF0C9 /* SettingsView.swift */; };
 		6B823F9DACA6490A73C884F6 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948B00A3A27BFD41B9A95D6 /* Article.swift */; };
 		6C33D36A56CD597164EC257F /* IPTVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E65F9BD508D958227A35 /* IPTVView.swift */; };
+		72FAB84E36C44D00AE0BA65D /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEAA24EDD80BFED62AF7E64 /* WidgetSnapshot.swift */; };
 		7C6973B04A509F9323D4F4C0 /* GununOzeti.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BC370A0F49E72AF29FA21 /* GununOzeti.swift */; };
 		7CD76C73EB802771D1AFE4F5 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7079A2F4F3572FC3B34CAEE /* TV.swift */; };
 		7D5BB339B4E4574B0547D1EB /* SehrimCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6218D863819DADBD1DFF3 /* SehrimCard.swift */; };
+		7F536468B17E40ACFECFA051 /* PANOWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A2C74669691DE6BF5FCB7 /* PANOWidget.swift */; };
 		81527EFFAF7F902D75976533 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA20FAF3D6BA9E798E3A9B9 /* Components.swift */; };
 		863CDF9F7CB6442342999E2A /* BugunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B21D46AE26A9831CE713F /* BugunView.swift */; };
 		899909A7290CE2B0A9BED7AD /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 50211245E8F5FAA498A6CDC7 /* Fonts */; };
 		8D800373C188482BDC4F1C44 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6A740018D14BE8ABC64F7 /* Radio.swift */; };
+		8FBD338499576D723F9AC59A /* WidgetBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B5B7F5CCF42D4B6F98877F /* WidgetBridge.swift */; };
+		9153E3F9F6A4646DFA3BA50B /* PANOWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B1D111BF40D1BF22F06EBF39 /* PANOWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		92D4E9EE9A9DF7B0694BC639 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0FDBE531641288AD13924 /* RadioView.swift */; };
 		97BEB38D902C813B6C4A2392 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083F80563A977A2E827E55B3 /* Entities.swift */; };
 		9926C87F5D1FE6D5312346F6 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE75B133A0580060B8BFCFB /* Notifications.swift */; };
@@ -59,11 +63,36 @@
 		F87D4A1C1385308ABE6E6AB3 /* districts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E618582B8EBDDCB896AB6B9 /* districts.json */; };
 		F8F256CF49AD11AA6C389DEB /* TeamCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1E9CD953E0DE18B963C5C1 /* TeamCard.swift */; };
 		FA73FDB0E24487F0FCA505F9 /* city-links.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C3E1F588EEC518F1E05400E /* city-links.json */; };
+		FB14005127AB7456680FCD9C /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEAA24EDD80BFED62AF7E64 /* WidgetSnapshot.swift */; };
 		FB9C9D164261118CDEF23DDE /* Fuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA59D7B1CAE9CA0816A9298 /* Fuel.swift */; };
 		FBEEB131FF92BAB5A3B6508E /* TeknolojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E9014562C5850025FD223F /* TeknolojiView.swift */; };
 		FC442C1F04074D64AAC6EE84 /* Traffic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F656D2382E69485CF803122 /* Traffic.swift */; };
 		FD9510335CF2A4565A7DE1A2 /* BriefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A560E2463B4EDDD1E93C606 /* BriefView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BA2C51403D37C1990B0FF5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96BEFBC0922668D2C90D2140 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D3A169B259D2FB6184A3DF8;
+			remoteInfo = PANOWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE88B392395D2E1774F1FF2E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9153E3F9F6A4646DFA3BA50B /* PANOWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06F486B69CB48F397CBA5A7B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -73,6 +102,7 @@
 		0EBC9CD681CA9224F49AF0C9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0EE4FABC283D535560E00AC0 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		0F656D2382E69485CF803122 /* Traffic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traffic.swift; sourceTree = "<group>"; };
+		132C4B7D420DF8A33FE3924D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1E76B959E04B39DB57F24EF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EA20FAF3D6BA9E798E3A9B9 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		2A905492D4FF457A9F4D15E5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -83,14 +113,18 @@
 		453104501394512BB9591FD7 /* CanliTVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanliTVView.swift; sourceTree = "<group>"; };
 		45D6C5348B9815A98EC72B70 /* MiniTVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniTVPlayer.swift; sourceTree = "<group>"; };
 		50211245E8F5FAA498A6CDC7 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = PANO/Resources/Fonts; sourceTree = SOURCE_ROOT; };
-		574113B153BC20C568E797D1 /* PANO.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PANO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		574113B153BC20C568E797D1 /* PANO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PANO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58B5B7F5CCF42D4B6F98877F /* WidgetBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBridge.swift; sourceTree = "<group>"; };
 		5A2D37FEF39DDC4C7E67155E /* MobileAyarlar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAyarlar.swift; sourceTree = "<group>"; };
+		5BEAA24EDD80BFED62AF7E64 /* WidgetSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshot.swift; sourceTree = "<group>"; };
 		5C3E1F588EEC518F1E05400E /* city-links.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "city-links.json"; sourceTree = "<group>"; };
 		5C46A8A4997DD4C4B9853BC7 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		5EA30D22814833622A56585D /* DepremView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepremView.swift; sourceTree = "<group>"; };
+		60AB89BC803AD638B7A97AE8 /* PANO.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PANO.entitlements; sourceTree = "<group>"; };
 		642DAC9F015477C9DD43DF33 /* TodoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRow.swift; sourceTree = "<group>"; };
 		65D6218D863819DADBD1DFF3 /* SehrimCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SehrimCard.swift; sourceTree = "<group>"; };
 		65EC96F539CCF83C83801C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		725C1DB6B1E7870F058DF832 /* PANOWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PANOWidget.entitlements; sourceTree = "<group>"; };
 		79E50BA2052F7817A5BDB661 /* FutbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutbolView.swift; sourceTree = "<group>"; };
 		7D50E9799481C5C3D98DD594 /* MobileBugun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileBugun.swift; sourceTree = "<group>"; };
 		88F17C8FE4F078E7D88A2A3E /* Takvim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Takvim.swift; sourceTree = "<group>"; };
@@ -106,9 +140,11 @@
 		A58D9AF3AB08FB7544780E5C /* RadioSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSongs.swift; sourceTree = "<group>"; };
 		A8707F14A3F5A1F87D595307 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		AF1E9CD953E0DE18B963C5C1 /* TeamCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCard.swift; sourceTree = "<group>"; };
+		B1D111BF40D1BF22F06EBF39 /* PANOWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PANOWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E62E7FB1BE2ED00D8E5806 /* PlatformViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformViews.swift; sourceTree = "<group>"; };
 		B7E9014562C5850025FD223F /* TeknolojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeknolojiView.swift; sourceTree = "<group>"; };
 		B9FCFD8AFB772E3AD8CB6732 /* HaftaninOzetiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaftaninOzetiView.swift; sourceTree = "<group>"; };
+		BC5A2C74669691DE6BF5FCB7 /* PANOWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANOWidget.swift; sourceTree = "<group>"; };
 		BEE75B133A0580060B8BFCFB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		C24BC370A0F49E72AF29FA21 /* GununOzeti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GununOzeti.swift; sourceTree = "<group>"; };
 		C9E0FDBE531641288AD13924 /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
@@ -127,10 +163,29 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		43128A4C09B61B144C16CA0F /* WidgetShared */ = {
+			isa = PBXGroup;
+			children = (
+				5BEAA24EDD80BFED62AF7E64 /* WidgetSnapshot.swift */,
+			);
+			path = WidgetShared;
+			sourceTree = "<group>";
+		};
+		4CB5E7C6B5F99ED98D8DD986 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				132C4B7D420DF8A33FE3924D /* Info.plist */,
+				725C1DB6B1E7870F058DF832 /* PANOWidget.entitlements */,
+				BC5A2C74669691DE6BF5FCB7 /* PANOWidget.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		8C34DAA969D10B84E1CE3E70 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				574113B153BC20C568E797D1 /* PANO.app */,
+				B1D111BF40D1BF22F06EBF39 /* PANOWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +208,8 @@
 				ECD7FB1DA706EA4DC954C431 /* iOS */,
 				970D6D847577E6F1531C4AD2 /* Resources */,
 				D75F07AE982F76A149912814 /* Shared */,
+				4CB5E7C6B5F99ED98D8DD986 /* Widget */,
+				43128A4C09B61B144C16CA0F /* WidgetShared */,
 			);
 			path = PANO;
 			sourceTree = "<group>";
@@ -223,10 +280,12 @@
 				8A5EC4BC157AA0D835F8A1B8 /* MobileHaberler.swift */,
 				4148AB344D82B2F9B857C682 /* MobileRoot.swift */,
 				BEE75B133A0580060B8BFCFB /* Notifications.swift */,
+				60AB89BC803AD638B7A97AE8 /* PANO.entitlements */,
 				2EAA18E9092E5F5294DCD470 /* PANOApp.swift */,
 				A8707F14A3F5A1F87D595307 /* Platform.swift */,
 				B2E62E7FB1BE2ED00D8E5806 /* PlatformViews.swift */,
 				06F486B69CB48F397CBA5A7B /* SplashView.swift */,
+				58B5B7F5CCF42D4B6F98877F /* WidgetBridge.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -234,16 +293,35 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0D3A169B259D2FB6184A3DF8 /* PANOWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 668E845C9F74D38413637B8C /* Build configuration list for PBXNativeTarget "PANOWidget" */;
+			buildPhases = (
+				356F4E5750235AC77217290E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PANOWidget;
+			packageProductDependencies = (
+			);
+			productName = PANOWidget;
+			productReference = B1D111BF40D1BF22F06EBF39 /* PANOWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		59416249223DD08A1C95B679 /* PANO */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1DAF820974C035C28A6AF97 /* Build configuration list for PBXNativeTarget "PANO" */;
 			buildPhases = (
 				44B8E781F7B21F3B6A2C3D4A /* Sources */,
 				F3870281725907A99E8CFDB1 /* Resources */,
+				BE88B392395D2E1774F1FF2E /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				203038798952F5F31F350EAB /* PBXTargetDependency */,
 			);
 			name = PANO;
 			packageProductDependencies = (
@@ -261,8 +339,13 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					0D3A169B259D2FB6184A3DF8 = {
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = "[\"com.apple.ApplicationGroups.iOS\": [\"enabled\": 1]]";
+					};
 					59416249223DD08A1C95B679 = {
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = "[\"com.apple.ApplicationGroups.iOS\": [\"enabled\": 1]]";
 					};
 				};
 			};
@@ -281,6 +364,7 @@
 			projectRoot = "";
 			targets = (
 				59416249223DD08A1C95B679 /* PANO */,
+				0D3A169B259D2FB6184A3DF8 /* PANOWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -301,6 +385,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		356F4E5750235AC77217290E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F536468B17E40ACFECFA051 /* PANOWidget.swift in Sources */,
+				72FAB84E36C44D00AE0BA65D /* WidgetSnapshot.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44B8E781F7B21F3B6A2C3D4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -355,19 +448,31 @@
 				183EF5624971E1F68F655426 /* TodoRow.swift in Sources */,
 				FC442C1F04074D64AAC6EE84 /* Traffic.swift in Sources */,
 				3E569DBEC4A27A7CC20B9280 /* WebOverlay.swift in Sources */,
+				8FBD338499576D723F9AC59A /* WidgetBridge.swift in Sources */,
+				FB14005127AB7456680FCD9C /* WidgetSnapshot.swift in Sources */,
 				EF200EAB1CE70C9E6B4103CB /* Yerel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		203038798952F5F31F350EAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D3A169B259D2FB6184A3DF8 /* PANOWidget */;
+			targetProxy = 8BA2C51403D37C1990B0FF5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		288D8B6DEFFC000DA5444830 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PANO/iOS/PANO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DR8AY52TR6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PANO/iOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PANO;
@@ -508,12 +613,56 @@
 			};
 			name = Debug;
 		};
+		59A4FAD8A269E3B09BED8186 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PANO/Widget/PANOWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DR8AY52TR6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PANO/Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PANO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ruzname.pano.widget;
+				PRODUCT_NAME = PANOWidget;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7A79AD745C868940FECDBB1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PANO/Widget/PANOWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DR8AY52TR6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PANO/Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PANO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ruzname.pano.widget;
+				PRODUCT_NAME = PANOWidget;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		983A571A038DCD9887EDF975 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PANO/iOS/PANO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DR8AY52TR6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PANO/iOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PANO;
@@ -539,6 +688,15 @@
 			buildConfigurations = (
 				596C0C3CE3FF73C47DDEC705 /* Debug */,
 				3BA95699EAB5C9EA45F47697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		668E845C9F74D38413637B8C /* Build configuration list for PBXNativeTarget "PANOWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59A4FAD8A269E3B09BED8186 /* Debug */,
+				7A79AD745C868940FECDBB1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

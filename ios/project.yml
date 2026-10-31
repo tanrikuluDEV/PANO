@@ -16,6 +16,7 @@ targets:
     sources:
       - path: PANO/Shared
       - path: PANO/iOS
+      - path: PANO/WidgetShared
       - path: PANO/Resources/Fonts
         type: folder
         buildPhase: resources
@@ -38,9 +39,22 @@ targets:
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
         INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription: Bugün ekranında günün takvim etkinliklerini göstermek için.
         INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: Yerel sekmesinde bulunduğun il ve ilçenin haberlerini göstermek için.
+    attributes:
+      SystemCapabilities:
+        com.apple.ApplicationGroups.iOS:
+          enabled: 1
+    dependencies:
+      - target: PANOWidget
+    entitlements:
+      path: PANO/iOS/PANO.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.ruzname.pano]
     info:
       path: PANO/iOS/Info.plist
       properties:
+        CFBundleURLTypes:
+          - CFBundleURLName: com.ruzname.pano
+            CFBundleURLSchemes: [pano]
         UIBackgroundModes: [audio, fetch]
         BGTaskSchedulerPermittedIdentifiers: [com.ruzname.pano.refresh]
         NSAppTransportSecurity:
@@ -49,3 +63,30 @@ targets:
           UIColorName: SplashBackground
           UIImageName: SplashLogo
           UIImageRespectsSafeAreaInsets: false
+  PANOWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: PANO/Widget
+      - path: PANO/WidgetShared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ruzname.pano.widget
+        PRODUCT_NAME: PANOWidget
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Automatic
+        INFOPLIST_KEY_CFBundleDisplayName: PANO
+    attributes:
+      SystemCapabilities:
+        com.apple.ApplicationGroups.iOS:
+          enabled: 1
+    entitlements:
+      path: PANO/Widget/PANOWidget.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.ruzname.pano]
+    info:
+      path: PANO/Widget/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension

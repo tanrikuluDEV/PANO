@@ -59,6 +59,7 @@ enum BackgroundRefresh {
                     await store.refreshSlow(force: true)
                     await store.refreshQuakes()
                     await store.scheduleBriefs()
+                    store.updateWidgets()
                 }
                 task.setTaskCompleted(success: true)
             }

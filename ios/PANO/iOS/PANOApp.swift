@@ -45,10 +45,11 @@ struct PANOApp: App {
             }
                 .task { await store.scheduleBriefs() }
                 // new data, new settings, or leaving the app: rebuild the scheduled summaries and ask for background time
-                .onChange(of: store.lastSync) { Task { await store.scheduleBriefs() } }
+                .onChange(of: store.lastSync) { Task { await store.scheduleBriefs() }; store.updateWidgets() }
+                .onOpenURL { store.openWidgetURL($0) }
                 .onChange(of: store.prefs) { Task { await store.scheduleBriefs() } }
                 .onChange(of: phase) { _, p in
-                    if p == .background { BackgroundRefresh.submit(); Task { await store.scheduleBriefs() } }
+                    if p == .background { BackgroundRefresh.submit(); store.updateWidgets(); Task { await store.scheduleBriefs() } }
                 }
         }
     }

@@ -10,7 +10,7 @@ APP=build/dev/Build/Products/Release-iphoneos/PANO.app
 
 xcodebuild -project PANO.xcodeproj -scheme PANO -configuration Release -destination 'generic/platform=iOS' \
   -derivedDataPath build/dev DEVELOPMENT_TEAM=DR8AY52TR6 CODE_SIGN_STYLE=Automatic CURRENT_PROJECT_VERSION=$BUILD \
-  -allowProvisioningUpdates build 2>&1 | grep -E "error:|BUILD" || exit 1
+  -allowProvisioningUpdates build 2>&1 | grep -E "error:|BUILD" | tee /dev/stderr | grep -q "BUILD SUCCEEDED" || { echo "build failed — nothing installed"; exit 1; }
 
 install_one() {
   for i in $(seq 1 30); do
