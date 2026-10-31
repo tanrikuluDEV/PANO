@@ -46,6 +46,7 @@
 		C0E27C30AE17201246AF6B8B /* DepremView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA30D22814833622A56585D /* DepremView.swift */; };
 		C91F33FE6AAC1DAE927DAA82 /* HavaDurumuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F0ADC34561F63C091E6AB /* HavaDurumuView.swift */; };
 		CB1F0D80F6AAB8018072568D /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307482A7BB9264BAEA27C93 /* Search.swift */; };
+		D6FDA69BC736D5F472AB7557 /* DefterExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC566E8A962C5E2EC2B768F /* DefterExport.swift */; };
 		D871E343A6391D8618148611 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A905492D4FF457A9F4D15E5 /* Theme.swift */; };
 		DCAD2012E80FAA1DE2A48091 /* DefterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2F09F5DB9C0DD4457B806 /* DefterView.swift */; };
 		DE33BB8B1AD5037813093714 /* RadioSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58D9AF3AB08FB7544780E5C /* RadioSongs.swift */; };
@@ -114,6 +115,7 @@
 		D8214626CA6933CE98D336C6 /* HaberlerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaberlerView.swift; sourceTree = "<group>"; };
 		D85C47AD923C1B2394F5782F /* Deprem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deprem.swift; sourceTree = "<group>"; };
 		DDA9E65F9BD508D958227A35 /* IPTVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPTVView.swift; sourceTree = "<group>"; };
+		DDC566E8A962C5E2EC2B768F /* DefterExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefterExport.swift; sourceTree = "<group>"; };
 		DFC91266AAFBA489B458717C /* ArsivView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArsivView.swift; sourceTree = "<group>"; };
 		E7487D03CEA5E34FC514E8D8 /* Yerel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yerel.swift; sourceTree = "<group>"; };
 		EF29A33A995A39A1BB67B1FC /* MorningBrief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningBrief.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				453104501394512BB9591FD7 /* CanliTVView.swift */,
 				1EA20FAF3D6BA9E798E3A9B9 /* Components.swift */,
 				0AFD30CADE68BE93938D46B3 /* Dedup.swift */,
+				DDC566E8A962C5E2EC2B768F /* DefterExport.swift */,
 				9DB2F09F5DB9C0DD4457B806 /* DefterView.swift */,
 				D85C47AD923C1B2394F5782F /* Deprem.swift */,
 				5EA30D22814833622A56585D /* DepremView.swift */,
@@ -310,6 +313,7 @@
 				B8A62347E0F90F2416BDDAC8 /* CanliTVView.swift in Sources */,
 				81527EFFAF7F902D75976533 /* Components.swift in Sources */,
 				06174A1AECB941410D15263A /* Dedup.swift in Sources */,
+				D6FDA69BC736D5F472AB7557 /* DefterExport.swift in Sources */,
 				DCAD2012E80FAA1DE2A48091 /* DefterView.swift in Sources */,
 				619BAFC8993AB32725A90B87 /* Deprem.swift in Sources */,
 				C0E27C30AE17201246AF6B8B /* DepremView.swift in Sources */,

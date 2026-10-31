@@ -6,6 +6,8 @@ import AppKit
 struct DefterView: View {
     @Environment(AppStore.self) private var store
     @State private var month = Day.cal.dateInterval(of: .month, for: Date())!.start
+    /// Defterde ara: while it holds text, the calendar makes way for the matching days.
+    @State private var query = ""
 
     /// Phone: the calendar folds away above the page.
     @State private var showCalendar = false
@@ -18,12 +20,14 @@ struct DefterView: View {
                         Image(systemName: "calendar").foregroundStyle(T.accent)
                         Text(Day.long(Day.date(store.journalDay) ?? Date())).font(.ui(14, .medium)).foregroundStyle(T.ink)
                         Spacer()
+                        // search and export sit at the top of the folded panel
+                        Image(systemName: "magnifyingglass").font(.system(size: 13)).foregroundStyle(T.ink3)
                         Image(systemName: "chevron.down").font(.system(size: 11, weight: .semibold)).foregroundStyle(T.ink3)
                             .rotationEffect(.degrees(showCalendar ? 180 : 0))
                     }
                     .padding(.horizontal, 16).padding(.vertical, 12).contentShape(Rectangle())
                 }.buttonStyle(.plain)
-                if showCalendar { leftColumn.frame(height: 360) }
+                if showCalendar { leftColumn.frame(height: 420) }
                 Rule()
                 EntryEditor(day: store.journalDay).id(store.journalDay)
             }
@@ -39,6 +43,10 @@ struct DefterView: View {
     private var leftColumn: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
+                SearchBox(placeholder: "Defterde ara", text: $query)
+                if !query.trimmingCharacters(in: .whitespaces).isEmpty {
+                    searchResults
+                } else {
                 HStack {
                     Text(Day.format(month, "LLLL yyyy").capitalized(with: Locale(identifier: "tr_TR"))).font(.serif(15))
                     Spacer()
@@ -65,9 +73,75 @@ struct DefterView: View {
                         }.buttonStyle(.plain)
                     }
                 }
+                }
+                Rule()
+                exportMenu
             }.padding(.horizontal, 12).padding(.top, 40).padding(.bottom, 16)
         }
         .overlay(alignment: .trailing) { VRule() }
+    }
+
+    private func open(_ day: String) {
+        store.journalDay = day
+        if let d = Day.date(day) { month = Day.cal.dateInterval(of: .month, for: d)!.start }
+    }
+
+    private var searchResults: some View {
+        let hits = store.journalSearch(query)
+        return VStack(alignment: .leading, spacing: 2) {
+            Eyebrow(text: hits.isEmpty ? "SONUÇ YOK" : "\(hits.count) SAYFA", size: 9.5).padding(.horizontal, 6).padding(.bottom, 4)
+            if hits.isEmpty {
+                Text("Yazılarda, etiketlerde ve görevlerde “\(query.trimmingCharacters(in: .whitespaces))” geçmiyor")
+                    .font(.ui(12)).foregroundStyle(T.ink3).padding(.horizontal, 6)
+            }
+            ForEach(hits) { h in
+                let sel = h.day == store.journalDay
+                Button { open(h.day) } label: {
+                    VStack(alignment: .leading, spacing: 3) {
+                        HStack {
+                            Text(Day.format(Day.date(h.day) ?? Date(), "d MMMM yyyy")).font(.mono(11)).foregroundStyle(sel ? T.accent : T.ink2)
+                            Spacer()
+                            if h.count > 1 { Text("\(h.count) yerde").font(.mono(9.5, .regular)).foregroundStyle(T.ink3) }
+                        }
+                        Text(h.line).font(.ui(12)).foregroundStyle(T.ink2).lineLimit(2)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading).padding(8)
+                    .background(sel ? T.accentSoft : .clear, in: RoundedRectangle(cornerRadius: 7)).contentShape(Rectangle())
+                }.buttonStyle(.plain)
+            }
+        }
+    }
+
+    private var exportMenu: some View {
+        Menu {
+            Section("Bu sayfa") {
+                Button("Markdown (.md)") { export([store.journalDay], pdf: false) }
+                Button("PDF") { export([store.journalDay], pdf: true) }
+            }
+            Section("Tüm defter") {
+                Button("Markdown (.md)") { export(DefterExport.allDays(store), pdf: false) }
+                Button("PDF") { export(DefterExport.allDays(store), pdf: true) }
+            }
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: "square.and.arrow.up").font(.system(size: 11))
+                Text("Dışa aktar").font(.ui(12))
+            }
+            .foregroundStyle(T.ink2)
+            .padding(.horizontal, 10).padding(.vertical, 5)
+            .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
+            .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
+        }
+        .menuStyle(.button).buttonStyle(.plain).fixedSize()
+        .padding(.horizontal, 4)
+    }
+
+    private func export(_ days: [String], pdf: Bool) {
+        #if os(macOS)
+        DefterExport.save(store, days: days, pdf: pdf)
+        #else
+        DefterExport.share(store, days: days, pdf: pdf)
+        #endif
     }
 
     private func shiftMonth(_ n: Int) { month = Day.cal.date(byAdding: .month, value: n, to: month) ?? month }
