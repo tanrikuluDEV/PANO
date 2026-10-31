@@ -132,7 +132,7 @@ struct SehrimCard: View {
 
     private var emergencyRow: some View {
         VStack(alignment: .leading, spacing: 7) {
-            Text(copied.map { "\($0) kopyalandı ✓" } ?? "ACİL NUMARALAR · tıkla, kopyala")
+            Text(copied.map { "\($0) kopyalandı ✓" } ?? (isPhone ? "ACİL NUMARALAR · dokun, kopyala" : "ACİL NUMARALAR · tıkla, kopyala"))
                 .font(.mono(9, .medium)).tracking(0.6).foregroundStyle(copied == nil ? T.ink3 : T.up)
             FlowChips(items: Self.emergency.map { EmergencyItem(number: $0.0, label: $0.1) }) { e in
                 Button {

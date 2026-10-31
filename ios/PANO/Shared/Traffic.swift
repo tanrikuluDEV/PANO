@@ -355,7 +355,7 @@ struct YolDurumuView: View {
                 .buttonStyle(.plain)
                 .disabled(adding || from.trimmingCharacters(in: .whitespaces).isEmpty || to.trimmingCharacters(in: .whitespaces).isEmpty)
             }
-            Text(addError ?? "Semt, cadde ya da yer adı yaz (örn. Bornova Metro). Sağ tık: Haritalar'da aç / sil.")
+            Text(addError ?? "Semt, cadde ya da yer adı yaz (örn. Bornova Metro). \(isPhone ? "Basılı tut" : "Sağ tık"): Haritalar'da aç / sil.")
                 .font(.ui(11)).foregroundStyle(addError == nil ? T.ink3 : T.down)
         }
         .padding(.top, 6)

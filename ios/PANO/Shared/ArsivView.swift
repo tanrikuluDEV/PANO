@@ -36,7 +36,7 @@ struct ArsivView: View {
     @ViewBuilder private var content: some View {
         if store.bookmarks.isEmpty {
             EmptyBox(title: "Arşivin boş",
-                     subtitle: "Bir haberi açıp “Arşive ekle”ye bas ya da listede sağ tıkla",
+                     subtitle: "Bir haberi açıp “Arşive ekle”ye bas ya da listede \(isPhone ? "basılı tut" : "sağ tıkla")",
                      actionTitle: "Haberlere git") { store.screen = .haberler }
                 .padding(24).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         } else if store.filteredArsiv.isEmpty {

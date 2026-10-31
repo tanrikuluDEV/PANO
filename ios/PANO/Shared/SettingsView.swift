@@ -121,16 +121,16 @@ struct SettingsPane: View {
             }
             group("SABAH ÖZETİ") {
                 row("Sabah özeti bildirimi", "Hava, piyasalar, manşetler, görevler ve takımın — her sabah tek bildirim", bind(\.morningBrief), first: true)
-                pickerRow("Saat", "Mac uykudaysa uyanınca, 4 saat içinde gönderilir",
+                pickerRow("Saat", isPhone ? "Önceden zamanlanır; uygulama kapalıyken de gelir" : "Mac uykudaysa uyanınca, 4 saat içinde gönderilir",
                           [(6, "06:00"), (7, "07:00"), (8, "08:00"), (9, "09:00"), (10, "10:00")], bind(\.morningHour))
                 TryNowRow { try await store.sendMorningBrief() }
             }
             group("GÜNÜN ÖZETİ") {
-                row("Günün özeti bildirimi", "Günün öne çıkan haberleri — her akşam tek bildirim, tıklayınca Haberler › Günün Özeti açılır", bind(\.eveningBrief), first: true)
+                row("Günün özeti bildirimi", "Günün öne çıkan haberleri — her akşam tek bildirim, \(isPhone ? "dokununca" : "tıklayınca") Haberler › Günün Özeti açılır", bind(\.eveningBrief), first: true)
                 HStack(spacing: 14) {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Saat").font(.ui(13))
-                        Text("Mac uykudaysa uyanınca, aynı gün içinde gönderilir").font(.ui(11.5)).foregroundStyle(T.ink3)
+                        Text(isPhone ? "Önceden zamanlanır; uygulama kapalıyken de gelir" : "Mac uykudaysa uyanınca, aynı gün içinde gönderilir").font(.ui(11.5)).foregroundStyle(T.ink3)
                     }
                     Spacer()
                     DatePicker("", selection: eveningTime, displayedComponents: .hourAndMinute)
@@ -145,7 +145,7 @@ struct SettingsPane: View {
                 TryNowRow { try await store.sendEveningBrief() }
             }
             group("TAKVİM") {
-                row("Mac Takvimi etkinliklerini göster", "Bugün ekranındaki Takvim kartında günün toplantı ve etkinlikleri; açınca izin istenir", bind(\.showCalendarEvents), first: true)
+                row(isPhone ? "iPhone Takvimi etkinliklerini göster" : "Mac Takvimi etkinliklerini göster", "Bugün ekranındaki Takvim kartında günün toplantı ve etkinlikleri; açınca izin istenir", bind(\.showCalendarEvents), first: true)
             }
             group("AKARYAKIT") {
                 row("Zam / indirim bildirimi", "Ekonomi › Akaryakıt'ta seçili ilde benzin, motorin ya da LPG fiyatı değişince", bind(\.fuelNotify), first: true)
@@ -403,7 +403,8 @@ private struct TryNowRow: View {
         switch state {
         case .idle, .working: nil
         case .sent: "Bildirim gönderildi. Görünmediyse Rahatsız Etme / Odak modunu kontrol et."
-        case .denied: "macOS, PANO'nun bildirimlerine izin vermiyor. Sistem Ayarları › Bildirimler › PANO'dan aç."
+        case .denied: isPhone ? "iOS, PANO'nun bildirimlerine izin vermiyor. Ayarlar › Bildirimler › PANO'dan aç."
+                            : "macOS, PANO'nun bildirimlerine izin vermiyor. Sistem Ayarları › Bildirimler › PANO'dan aç."
         case .failed(let m): "Gönderilemedi: \(m)"
         }
     }
