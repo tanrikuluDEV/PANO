@@ -102,6 +102,9 @@ struct WeeklyDigest {
     /// - A single word only counts if headlines usually capitalise it mid-sentence (people, places, companies),
     ///   which keeps everyday words like "başlıyor" out without an endless stopword list.
     /// - A topic whose stories mostly belong to a higher-ranked one is dropped ("Dursun" under "Dursun Özbek").
+    /// - Titles and institutions ("Bakanlığı", "Kurulu", "Zirvesi", "Milli") are never a topic on their own.
+    /// - A word that headlines mostly write as part of a longer name ("Arda" Güler, Real "Madrid", "Süper" Lig) only
+    ///   counts as that name, so one word can't gather unrelated stories ("Kartal": İsmail Kartal / the club).
     static func topics(_ week: [NewsItem]) -> [Topic] {
         let tr = Locale(identifier: "tr_TR")
         let sourceWords = Set(allNewsSources.flatMap { $0.name.lowercased(with: tr).split(whereSeparator: { !$0.isLetter }).map(String.init) })
@@ -109,12 +112,30 @@ struct WeeklyDigest {
 
         var stories: [String: [NewsItem]] = [:]
         var forms: [String: [String: Int]] = [:]
-        var capitalised: [String: Int] = [:], midSentence: [String: Int] = [:]
+        var capitalised: [String: Int] = [:], midSentence: [String: Int] = [:], inName: [String: Int] = [:]
         var phrases = Set<String>()
+        // words some headline writes in lower case: a capital on them is just the start of a headline ("Adı", "Son")
+        var everLower = Set<String>()
+        for n in week {
+            for w in n.title.split(whereSeparator: { !$0.isLetter }) where w.first?.isLowercase == true { everLower.insert(String(w)) }
+        }
         for n in week {
             // "Erdoğan'dan" → "Erdoğan": drop the suffix after an apostrophe, keep word order for phrases
-            let words = n.title.split(whereSeparator: { !$0.isLetter && $0 != "'" && $0 != "’" })
-                .compactMap { $0.split(whereSeparator: { $0 == "'" || $0 == "’" }).first.map(String.init) }
+            let raw = n.title.split(whereSeparator: { !$0.isLetter && $0 != "'" && $0 != "’" })
+            let words = raw.compactMap { $0.split(whereSeparator: { $0 == "'" || $0 == "’" }).first.map(String.init) }
+            // the capitalised word next to this one, when only a space separates them ("Arda Güler", not
+            // "Galatasaray-Fenerbahçe"); a suffix ends a name ("Fenerbahçe'de Dirk Kuyt")
+            func joined(_ a: Int, _ b: Int) -> Bool {
+                raw.count == words.count && !raw[a].contains(where: { $0 == "'" || $0 == "’" })
+                    && n.title[raw[a].endIndex..<raw[b].startIndex] == " "
+            }
+            func nameNeighbour(_ i: Int, _ j: Int) -> Bool {
+                // the headline's first word is capitalised anyway, so it only counts if it's never written in lower case
+                guard words.indices.contains(j), words[j].first?.isUppercase == true,
+                      j > 0 || !everLower.contains(words[j].lowercased(with: tr)),
+                      !titleWords.contains(words[j].lowercased(with: tr)) else { return false }
+                return joined(min(i, j), max(i, j))
+            }
             let sentenceCase = words.filter { $0.count >= 4 && $0.first?.isLowercase == true }.count >= 2
             var seen = Set<String>()
             var prev: (key: String, form: String)?
@@ -130,10 +151,14 @@ struct WeeklyDigest {
                     add(key, form)
                     if sentenceCase, i > 0 {
                         midSentence[key, default: 0] += 1
-                        if form.first?.isUppercase == true { capitalised[key, default: 0] += 1 }
+                        if form.first?.isUppercase == true {
+                            capitalised[key, default: 0] += 1
+                            if nameNeighbour(i, i - 1) || nameNeighbour(i, i + 1) { inName[key, default: 0] += 1 }
+                        }
                     }
                 }
-                if ok, let p = prev {
+                // a phrase is two words side by side: not across a suffix ("Caddesi'nde polis") or a dash
+                if ok, let p = prev, joined(i - 1, i) {
                     let k = p.key + " " + key
                     phrases.insert(k); add(k, p.form + " " + form)
                 }
@@ -146,8 +171,9 @@ struct WeeklyDigest {
             if phrases.contains(key) {
                 guard srcs >= 3, list.count >= 4 else { return nil }
             } else {
-                let ctx = midSentence[key] ?? 0
-                guard srcs >= 2, list.count >= 3, ctx >= 2, Double(capitalised[key] ?? 0) / Double(ctx) >= 0.6 else { return nil }
+                let ctx = midSentence[key] ?? 0, caps = capitalised[key] ?? 0
+                guard srcs >= 2, list.count >= 3, ctx >= 2, Double(caps) / Double(ctx) >= 0.6, !titleWords.contains(key),
+                      Double(inName[key] ?? 0) / Double(max(caps, 1)) < 0.6 else { return nil }
             }
             // prefer the way headlines normally write it (not ALL-CAPS "SON DAKİKA" styling)
             let f = forms[key] ?? [:]
@@ -185,6 +211,21 @@ struct WeeklyDigest {
         "sözleri", "sözü", "açıktı", "resmi", "resmen", "ilk", "son", "iki", "üç", "dört", "beş", "yüz", "bin",
         "başkanı", "başlıyor", "ortaya", "geri", "özel", "mesajı", "kararı", "hakkında", "yükseldi", "tarihi",
         "gelişme", "yıllık", "dolarlık", "genel", "takımı", "deki", "daki", "dan", "den", "nin", "nın",
+        "sona", "erdi", "dikkat", "çeken", "çekti", "gündem", "gündemde", "olduğunu", "hayatını", "kaybetti",
+        "yaşamını", "yitirdi",
+    ]
+
+    /// Titles and institutions: capitalised in headlines because they're part of a name ("Sağlık Bakanlığı",
+    /// "Cumhurbaşkanı Erdoğan"), but never a topic by themselves and never what makes a word part of a name.
+    static let titleWords: Set<String> = [
+        "bakan", "bakanı", "bakanlığı", "bakanlar", "başkan", "başkanı", "başkanlığı", "başbakan", "başbakanı",
+        "cumhurbaşkanı", "cumhurbaşkanlığı", "belediye", "belediyesi", "belediyeler", "vali", "valisi", "valiliği",
+        "kurul", "kurulu", "kurumu", "meclisi", "mahkemesi", "üniversitesi", "derneği", "partisi", "sekreteri",
+        "bankası", "kulübü", "lig", "ligi", "kupası", "festivali", "müdürlüğü", "emniyet", "genel", "milli",
+        "teşkilatı", "devletleri", "devleti", "federasyonu", "dışişleri", "şirketi", "holding", "zirve", "zirvesi",
+        "bayram", "bayramı", "teknik", "direktör", "direktörü", "hoca", "hocası", "lideri", "sözcüsü", "yardımcısı",
+        "milletvekili", "büyükelçisi", "komutanı", "müdürü", "rektörü", "kaymakamı", "prof", "doç", "dr",
+        "süper", "premier",
     ]
 }
 
