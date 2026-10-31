@@ -25,18 +25,7 @@ struct SporView: View {
                             .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
                             .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
                     }.menuStyle(.button).buttonStyle(.plain).fixedSize()
-                    HStack(spacing: 6) {
-                        Text("⌕").font(.ui(13)).foregroundStyle(T.ink3)
-                        TextField("Spor haberlerinde ara", text: $store.sporQuery).textFieldStyle(.plain).font(.ui(12.5)).frame(width: 160)
-                        if !store.sporQuery.isEmpty {
-                            Button { store.sporQuery = "" } label: {
-                                Image(systemName: "xmark.circle.fill").font(.system(size: 12)).foregroundStyle(T.ink3)
-                            }.buttonStyle(.plain)
-                        }
-                    }
-                    .padding(.horizontal, 10).padding(.vertical, 5)
-                    .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
-                    .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
+                    SearchBox(placeholder: "Spor haberlerinde ara", text: $store.sporQuery, width: 160)
                 }
                 // branches get a row of their own: seven pills with counts don't share a line with menu + search
                 HStack(spacing: 8) {

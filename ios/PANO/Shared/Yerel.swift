@@ -289,19 +289,7 @@ struct YerelView: View {
 
     private var searchField: some View {
         @Bindable var yerel = yerel
-        return HStack(spacing: 6) {
-                        Text("⌕").font(.ui(13)).foregroundStyle(T.ink3)
-            TextField("\(place.district ?? place.province) haberlerinde ara", text: $yerel.query)
-                .textFieldStyle(.plain).font(.ui(12.5)).frame(width: isPhone ? nil : 190)
-            if !yerel.query.isEmpty {
-                Button { yerel.query = "" } label: {
-                    Image(systemName: "xmark.circle.fill").font(.system(size: 12)).foregroundStyle(T.ink3)
-                }.buttonStyle(.plain)
-            }
-        }
-        .padding(.horizontal, 10).padding(.vertical, 5)
-        .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
-        .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
+        return SearchBox(placeholder: "\(place.district ?? place.province) haberlerinde ara", text: $yerel.query, width: isPhone ? nil : 190)
     }
 
     private func chip(_ text: String) -> some View {

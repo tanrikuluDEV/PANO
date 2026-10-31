@@ -45,6 +45,7 @@
 		BF572231149508CF4FD95473 /* MobileRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4148AB344D82B2F9B857C682 /* MobileRoot.swift */; };
 		C0E27C30AE17201246AF6B8B /* DepremView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA30D22814833622A56585D /* DepremView.swift */; };
 		C91F33FE6AAC1DAE927DAA82 /* HavaDurumuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F0ADC34561F63C091E6AB /* HavaDurumuView.swift */; };
+		CB1F0D80F6AAB8018072568D /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307482A7BB9264BAEA27C93 /* Search.swift */; };
 		D871E343A6391D8618148611 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A905492D4FF457A9F4D15E5 /* Theme.swift */; };
 		DCAD2012E80FAA1DE2A48091 /* DefterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2F09F5DB9C0DD4457B806 /* DefterView.swift */; };
 		DE33BB8B1AD5037813093714 /* RadioSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58D9AF3AB08FB7544780E5C /* RadioSongs.swift */; };
@@ -117,6 +118,7 @@
 		E7487D03CEA5E34FC514E8D8 /* Yerel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yerel.swift; sourceTree = "<group>"; };
 		EF29A33A995A39A1BB67B1FC /* MorningBrief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningBrief.swift; sourceTree = "<group>"; };
 		F0AB2486D9D3D24DB06FBAC1 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F307482A7BB9264BAEA27C93 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		F7079A2F4F3572FC3B34CAEE /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
 		F76B21D46AE26A9831CE713F /* BugunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugunView.swift; sourceTree = "<group>"; };
 		F948B00A3A27BFD41B9A95D6 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				0DD6A740018D14BE8ABC64F7 /* Radio.swift */,
 				A58D9AF3AB08FB7544780E5C /* RadioSongs.swift */,
 				C9E0FDBE531641288AD13924 /* RadioView.swift */,
+				F307482A7BB9264BAEA27C93 /* Search.swift */,
 				65D6218D863819DADBD1DFF3 /* SehrimCard.swift */,
 				5C46A8A4997DD4C4B9853BC7 /* Services.swift */,
 				0EBC9CD681CA9224F49AF0C9 /* SettingsView.swift */,
@@ -333,6 +336,7 @@
 				8D800373C188482BDC4F1C44 /* Radio.swift in Sources */,
 				DE33BB8B1AD5037813093714 /* RadioSongs.swift in Sources */,
 				92D4E9EE9A9DF7B0694BC639 /* RadioView.swift in Sources */,
+				CB1F0D80F6AAB8018072568D /* Search.swift in Sources */,
 				7D5BB339B4E4574B0547D1EB /* SehrimCard.swift in Sources */,
 				466612CDE44A1AE26334E1F7 /* Services.swift in Sources */,
 				656663D0CAC4A535DFC1CFDE /* SettingsView.swift in Sources */,

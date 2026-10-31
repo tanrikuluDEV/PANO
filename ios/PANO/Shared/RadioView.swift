@@ -64,13 +64,7 @@ struct RadyoView: View {
                             }
                         }
                     }
-                    HStack(spacing: 6) {
-                        Image(systemName: "magnifyingglass").font(.system(size: 13)).foregroundStyle(T.ink3)
-                        TextField("Kanal ara", text: $query).textFieldStyle(.plain).font(.ui(15))
-                    }
-                    .padding(.horizontal, 12).padding(.vertical, 9)
-                    .background(T.paper2, in: RoundedRectangle(cornerRadius: 10))
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(T.rule, lineWidth: 1))
+                    SearchBox(placeholder: "Kanal ara", text: $query, large: true)
                 }
             }
             .padding(.init(top: 8, leading: 16, bottom: 12, trailing: 16))
@@ -93,13 +87,7 @@ struct RadyoView: View {
                     }
 
                     Spacer(minLength: 8)
-                    HStack(spacing: 6) {
-                        Text("⌕").font(.ui(13)).foregroundStyle(T.ink3)
-                        TextField("Kanal ara", text: $query).textFieldStyle(.plain).font(.ui(12.5)).frame(width: 130)
-                    }
-                    .padding(.horizontal, 10).padding(.vertical, 5)
-                    .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
-                    .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
+                    SearchBox(placeholder: "Kanal ara", text: $query, width: 130)
                 }
                 }
             }
@@ -112,7 +100,7 @@ struct RadyoView: View {
         .task { if radio.stations.isEmpty || radio.loadState == .idle { await radio.loadStations() } }
         .task(id: category) { if category == "Yerel", radio.localState == .idle { await radio.loadLocal() } }
         .task(id: query) {
-            try? await Task.sleep(nanoseconds: 400_000_000)
+            try? await Task.sleep(nanoseconds: 150_000_000)   // SearchBox already waits for a pause
             guard !Task.isCancelled else { return }
             await radio.search(query)
         }

@@ -260,19 +260,7 @@ struct YerelView: View {
                     districtMenu
                     locateButton
                     Spacer(minLength: 8)
-                    HStack(spacing: 6) {
-                        Text("⌕").font(.ui(13)).foregroundStyle(T.ink3)
-                        TextField("\(place.district ?? place.province) haberlerinde ara", text: $yerel.query)
-                            .textFieldStyle(.plain).font(.ui(12.5)).frame(width: 190)
-                        if !yerel.query.isEmpty {
-                            Button { yerel.query = "" } label: {
-                                Image(systemName: "xmark.circle.fill").font(.system(size: 12)).foregroundStyle(T.ink3)
-                            }.buttonStyle(.plain)
-                        }
-                    }
-                    .padding(.horizontal, 10).padding(.vertical, 5)
-                    .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
-                    .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
+                    SearchBox(placeholder: "\(place.district ?? place.province) haberlerinde ara", text: $yerel.query, width: 190)
                 }
                 if let e = yerel.locateError {
                     Text(e).font(.ui(11.5)).foregroundStyle(T.down)

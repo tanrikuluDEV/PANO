@@ -21,18 +21,7 @@ struct ArsivView: View {
                     Text("Haberlerde ya da detayda “Arşive ekle” ile kaydettiklerin")
                         .font(.ui(12)).foregroundStyle(T.ink3)
                     Spacer(minLength: 8)
-                    HStack(spacing: 6) {
-                        Text("⌕").font(.ui(13)).foregroundStyle(T.ink3)
-                        TextField("Arşivde ara", text: $store.arsivQuery).textFieldStyle(.plain).font(.ui(12.5)).frame(width: 170)
-                        if !store.arsivQuery.isEmpty {
-                            Button { store.arsivQuery = "" } label: {
-                                Image(systemName: "xmark.circle.fill").font(.system(size: 12)).foregroundStyle(T.ink3)
-                            }.buttonStyle(.plain)
-                        }
-                    }
-                    .padding(.horizontal, 10).padding(.vertical, 5)
-                    .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
-                    .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
+                    SearchBox(placeholder: "Arşivde ara", text: $store.arsivQuery, width: 170)
                 }
             }
             .padding(.init(top: 34, leading: 24, bottom: 14, trailing: 24))

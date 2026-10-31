@@ -91,7 +91,9 @@ final class AppStore {
     var journalDay = Day.key()
 
     // Data
-    var news: [NewsItem] = [] { didSet { storyCluster = StoryClusters.build(news) } }
+    var news: [NewsItem] = [] { didSet { storyCluster = StoryClusters.build(news); newsVersion &+= 1 } }
+    /// Bumped whenever `news` changes: the key the filtered lists are cached under.
+    private(set) var newsVersion = 0
     /// Story id → id of the newest story covering the same event (only stories with duplicates). See Dedup.swift.
     var storyCluster: [String: String] = [:]
     var newsState: LoadState = .idle
@@ -216,16 +218,38 @@ final class AppStore {
     var activeSources: [NewsSource] { allNewsSources.filter { prefs.enabledSources.contains($0.id) } }
 
     var filteredNews: [NewsItem] {
-        let q = newsQuery.trimmingCharacters(in: .whitespaces)
-        return news.filter { n in
-            guard prefs.enabledSources.contains(n.sourceID), newsSourceFilter == nil || n.sourceID == newsSourceFilter else { return false }
-            // a search term looks across every category; otherwise the selected pill applies
-            if !q.isEmpty {
-                return n.title.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil
-                    || n.summary.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil
+        let q = Search.fold(newsQuery.trimmingCharacters(in: .whitespaces))
+        let key = "\(newsVersion)|\(prefs.enabledSources.hashValue)|\(newsSourceFilter ?? "")|\(newsCategory)|\(q)"
+        return memoized("news", key) {
+            news.filter { n in
+                guard prefs.enabledSources.contains(n.sourceID), newsSourceFilter == nil || n.sourceID == newsSourceFilter else { return false }
+                // a search term looks across every category; otherwise the selected pill applies
+                if !q.isEmpty { return matchesSearch(n, q) }
+                return newsCategory == "Gündem" ? n.category != "Spor" : n.category == newsCategory
             }
-            return newsCategory == "Gündem" ? n.category != "Spor" : n.category == newsCategory
         }
+    }
+
+    // MARK: Search
+
+    /// Filtered lists are read several times per redraw (count, list, selection, empty check), so each is
+    /// worked out once per set of inputs rather than on every read.
+    @ObservationIgnored private var memo: [String: (key: String, items: [NewsItem])] = [:]
+    private func memoized(_ name: String, _ key: String, _ make: () -> [NewsItem]) -> [NewsItem] {
+        if let m = memo[name], m.key == key { return m.items }
+        let items = make()
+        memo[name] = (key, items)
+        return items
+    }
+    /// Folded title + summary per story id, made the first time a story is searched.
+    @ObservationIgnored private var searchText: [String: String] = [:]
+    /// `q` must already be folded (`Search.fold`).
+    func matchesSearch(_ n: NewsItem, _ q: String) -> Bool {
+        if let t = searchText[n.id] { return t.contains(q) }
+        if searchText.count > 20_000 { searchText = [:] }
+        let t = Search.fold(n.title + "\n" + n.summary)
+        searchText[n.id] = t
+        return t.contains(q)
     }
     var selectedNews: NewsItem? {
         let list = filteredNews
@@ -239,12 +263,13 @@ final class AppStore {
         return allNewsSources.filter { ids.contains($0.id) }
     }
     var filteredTeknoloji: [NewsItem] {
-        let q = teknolojiQuery.trimmingCharacters(in: .whitespaces)
-        return visibleNews.filter { n in
-            guard n.category == "Teknoloji", teknolojiSourceFilter == nil || n.sourceID == teknolojiSourceFilter else { return false }
-            guard !q.isEmpty else { return true }
-            return n.title.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil
-                || n.summary.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil
+        let q = Search.fold(teknolojiQuery.trimmingCharacters(in: .whitespaces))
+        let key = "\(newsVersion)|\(prefs.enabledSources.hashValue)|\(teknolojiSourceFilter ?? "")|\(q)"
+        return memoized("teknoloji", key) {
+            visibleNews.filter { n in
+                guard n.category == "Teknoloji", teknolojiSourceFilter == nil || n.sourceID == teknolojiSourceFilter else { return false }
+                return q.isEmpty || matchesSearch(n, q)
+            }
         }
     }
     var selectedTeknoloji: NewsItem? {
@@ -259,7 +284,9 @@ final class AppStore {
     }
 
     /// News filtered to enabled sources, most recent first (`news` is already kept in that order).
-    var visibleNews: [NewsItem] { news.filter { prefs.enabledSources.contains($0.sourceID) } }
+    var visibleNews: [NewsItem] {
+        memoized("visible", "\(newsVersion)|\(prefs.enabledSources.hashValue)") { news.filter { prefs.enabledSources.contains($0.sourceID) } }
+    }
 
     /// Shown under Ekonomi's chart: the same "Ekonomi" category Haberler uses.
     var ekonomiNews: [NewsItem] { visibleNews.filter { $0.category == "Ekonomi" } }
@@ -275,7 +302,9 @@ final class AppStore {
         if let b = branchCache[n.id] { return b }
         let b = SportBranch.of(n); branchCache[n.id] = b; return b
     }
-    var sporNews: [NewsItem] { visibleNews.filter { $0.category == "Spor" } }
+    var sporNews: [NewsItem] {
+        memoized("spor", "\(newsVersion)|\(prefs.enabledSources.hashValue)") { visibleNews.filter { $0.category == "Spor" } }
+    }
     /// Branch pills show how many stories each branch has right now.
     var sporBranchCounts: [SportBranch: Int] {
         Dictionary(grouping: sporNews.filter { sporSourceFilter == nil || $0.sourceID == sporSourceFilter }) { branch(of: $0) }.mapValues(\.count)
@@ -285,11 +314,14 @@ final class AppStore {
         return allNewsSources.filter { ids.contains($0.id) }
     }
     var filteredSpor: [NewsItem] {
-        let q = sporQuery.trimmingCharacters(in: .whitespaces)
-        return sporNews.filter { n in
-            guard sporSourceFilter == nil || n.sourceID == sporSourceFilter else { return false }
-            if !q.isEmpty { return n.mentions(q) || n.summary.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil }
-            return sporBranch == nil || branch(of: n) == sporBranch
+        let q = Search.fold(sporQuery.trimmingCharacters(in: .whitespaces))
+        let key = "\(newsVersion)|\(prefs.enabledSources.hashValue)|\(sporSourceFilter ?? "")|\(sporBranch?.rawValue ?? "")|\(q)"
+        return memoized("sporFiltered", key) {
+            sporNews.filter { n in
+                guard sporSourceFilter == nil || n.sourceID == sporSourceFilter else { return false }
+                if !q.isEmpty { return matchesSearch(n, q) }
+                return sporBranch == nil || branch(of: n) == sporBranch
+            }
         }
     }
     var selectedSpor: NewsItem? {
@@ -855,9 +887,9 @@ final class AppStore {
     }
     /// Archived stories, newest story first (so the list groups by day like Haberler), filtered by the search box.
     var filteredArsiv: [NewsItem] {
-        let q = arsivQuery.trimmingCharacters(in: .whitespaces)
+        let q = Search.fold(arsivQuery.trimmingCharacters(in: .whitespaces))
         return bookmarks.map(\.item)
-            .filter { q.isEmpty || $0.mentions(q) || $0.summary.range(of: q, options: [.caseInsensitive, .diacriticInsensitive]) != nil || $0.source.localizedCaseInsensitiveContains(q) }
+            .filter { q.isEmpty || matchesSearch($0, q) || Search.fold($0.source).contains(q) }
             .sorted { $0.date > $1.date }
     }
     var selectedArsiv: NewsItem? {

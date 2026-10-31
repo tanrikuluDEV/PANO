@@ -38,16 +38,7 @@ struct MobileHaberler: View {
                     .padding(.horizontal, 16)
             }
             if store.newsMode == .list {
-                HStack(spacing: 6) {
-                    Image(systemName: "magnifyingglass").font(.system(size: 13)).foregroundStyle(T.ink3)
-                    TextField("Haberlerde ara", text: $store.newsQuery).textFieldStyle(.plain).font(.ui(15)).submitLabel(.search)
-                    if !store.newsQuery.isEmpty {
-                        Button { store.newsQuery = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(T.ink3) }.buttonStyle(.plain)
-                    }
-                }
-                .padding(.horizontal, 12).padding(.vertical, 9)
-                .background(T.paper2, in: RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(T.rule, lineWidth: 1))
+                SearchBox(placeholder: "Haberlerde ara", text: $store.newsQuery, large: true)
                 .padding(.horizontal, 16)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {

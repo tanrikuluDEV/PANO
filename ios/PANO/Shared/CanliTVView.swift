@@ -169,18 +169,7 @@ struct TVPlayerPane: View {
 struct ChannelSearchField: View {
     @Binding var query: String
     var body: some View {
-        HStack(spacing: 6) {
-            Text("⌕").font(.ui(13)).foregroundStyle(T.ink3)
-            TextField("Kanal ara", text: $query).textFieldStyle(.plain).font(.ui(12.5))
-            if !query.isEmpty {
-                Button { query = "" } label: {
-                    Image(systemName: "xmark.circle.fill").font(.system(size: 12)).foregroundStyle(T.ink3)
-                }.buttonStyle(.plain)
-            }
-        }
-        .padding(.horizontal, 10).padding(.vertical, 5)
-        .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
-        .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
+        SearchBox(placeholder: "Kanal ara", text: $query)
     }
 }
 

@@ -29,18 +29,7 @@ struct TeknolojiView: View {
                             .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
                     }.menuStyle(.button).buttonStyle(.plain).fixedSize()
                     Spacer(minLength: 8)
-                    HStack(spacing: 6) {
-                        Text("⌕").font(.ui(13)).foregroundStyle(T.ink3)
-                        TextField("Teknoloji haberlerinde ara", text: $store.teknolojiQuery).textFieldStyle(.plain).font(.ui(12.5)).frame(width: 190)
-                        if !store.teknolojiQuery.isEmpty {
-                            Button { store.teknolojiQuery = "" } label: {
-                                Image(systemName: "xmark.circle.fill").font(.system(size: 12)).foregroundStyle(T.ink3)
-                            }.buttonStyle(.plain)
-                        }
-                    }
-                    .padding(.horizontal, 10).padding(.vertical, 5)
-                    .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
-                    .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
+                    SearchBox(placeholder: "Teknoloji haberlerinde ara", text: $store.teknolojiQuery, width: 190)
                 }
             }
             .padding(.init(top: 34, leading: 24, bottom: 14, trailing: 24))

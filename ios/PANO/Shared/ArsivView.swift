@@ -23,18 +23,7 @@ struct ArsivView: View {
                             .font(.ui(12)).foregroundStyle(T.ink3)
                         Spacer(minLength: 8)
                     }
-                    HStack(spacing: 6) {
-                        Text("⌕").font(.ui(13)).foregroundStyle(T.ink3)
-                        TextField("Arşivde ara", text: $store.arsivQuery).textFieldStyle(.plain).font(.ui(12.5)).frame(width: isPhone ? nil : 170)
-                        if !store.arsivQuery.isEmpty {
-                            Button { store.arsivQuery = "" } label: {
-                                Image(systemName: "xmark.circle.fill").font(.system(size: 12)).foregroundStyle(T.ink3)
-                            }.buttonStyle(.plain)
-                        }
-                    }
-                    .padding(.horizontal, 10).padding(.vertical, 5)
-                    .background(T.paper2, in: RoundedRectangle(cornerRadius: 7))
-                    .overlay(RoundedRectangle(cornerRadius: 7).stroke(T.rule, lineWidth: 1))
+                    SearchBox(placeholder: "Arşivde ara", text: $store.arsivQuery, width: isPhone ? nil : 170)
                 }
             }
             .padding(.screenHeader)
